@@ -37,6 +37,12 @@ dependencies:
   smooth_page_indicator: ^0.2.0
   fluttertoast: ^8.0.3
   carousel_slider: ^3.0.0
+  flutter_icons: ^1.1.0
+  titled_navigation_bar: ^4.1.0
+  flutter_svg: ^0.22.0
+  carousel_pro: ^1.0.0
+  flutter_swiper: ^1.1.6
+
 
 
 dev_dependencies:
@@ -61,6 +67,9 @@ flutter:
     - family: Jannah
       fonts:
         - asset: assets/fonts/jannah.ttf
+    - family: Iconly-Broken
+      fonts:
+        - asset: fonts/icons.ttf
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

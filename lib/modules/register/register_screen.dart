@@ -1,4 +1,4 @@
-import 'package:arganzwina_app/layout/shop_layout.dart';
+import 'package:arganzwina_app/layout/store_layout.dart';
 import 'package:arganzwina_app/modules/Login/shop_login_screen.dart';
 import 'package:arganzwina_app/shared/components/components.dart';
 import 'package:arganzwina_app/shared/components/constants.dart';
@@ -10,10 +10,9 @@ import 'cubit/cubit.dart';
 import 'cubit/states.dart';
 
 class StoreRegisterScreen extends StatelessWidget {
-  var nameController =TextEditingController();
+  var confirmPasswordController =TextEditingController();
   var emailController =TextEditingController();
   var passwordController =TextEditingController();
-  var phoneController =TextEditingController();
   var formKey=GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -104,7 +103,7 @@ class StoreRegisterScreen extends StatelessWidget {
                            height: 20,
                          ),
                          defaultFormFiled(
-                           controller: passwordController,
+                           controller: confirmPasswordController,
                            type: TextInputType.visiblePassword,
                            label: 'تاكيد كلمه المرور',
                            isPassword: StoreRegisterCubit.get(context).isPasswordShown,
@@ -119,7 +118,7 @@ class StoreRegisterScreen extends StatelessWidget {
                            prefix: Icons.lock,
                            validate: (String value) {
                              if (value.isEmpty) {
-                               return 'كلمه المرور غير صالحه';
+                               return 'كلمه المرور غير متطابقه';
                              } else {
                                return null;
                              }
@@ -154,6 +153,7 @@ class StoreRegisterScreen extends StatelessWidget {
                                      StoreRegisterCubit.get(context).userRegister(
                                          email: emailController.text,
                                          password: passwordController.text,
+                                         confirmPassword: confirmPasswordController.text,
                                      );
                                    }
                                  }, text: 'دخول', isupperCase: true);

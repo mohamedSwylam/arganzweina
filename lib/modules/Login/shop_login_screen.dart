@@ -1,4 +1,4 @@
-import 'package:arganzwina_app/layout/shop_layout.dart';
+import 'package:arganzwina_app/layout/store_layout.dart';
 import 'package:arganzwina_app/modules/register/register_screen.dart';
 import 'package:arganzwina_app/shared/components/components.dart';
 import 'package:arganzwina_app/shared/components/constants.dart';

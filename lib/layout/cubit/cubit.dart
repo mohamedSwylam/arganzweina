@@ -6,7 +6,7 @@ import 'package:arganzwina_app/model/home_model.dart';
 import 'package:arganzwina_app/model/login_model.dart';
 import 'package:arganzwina_app/modules/categories/categories_screen.dart';
 import 'package:arganzwina_app/modules/favorite/favorite_screen.dart';
-import 'package:arganzwina_app/modules/prouduct/product_screen.dart';
+import 'package:arganzwina_app/modules/home_screen/home_screen.dart';
 import 'package:arganzwina_app/modules/settings/settings_screen.dart';
 import 'package:arganzwina_app/shared/components/constants.dart';
 import 'package:arganzwina_app/shared/network/local/cache_helper.dart';
@@ -24,7 +24,7 @@ class StoreCubit extends Cubit<StoreStates> {
   static StoreCubit get(context) => BlocProvider.of(context);
   int currentIndex = 0;
   List<Widget> StoreScreens = [
-    ProductScreen(),
+    HomeScreen(),
     CategoriesScreen(),
     FavoriteScreen(),
     SettingsScreen(),

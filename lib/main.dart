@@ -9,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'layout/cubit/cubit.dart';
 import 'layout/cubit/states.dart';
-import 'layout/shop_layout.dart';
+import 'layout/store_layout.dart';
 import 'modules/Login/shop_login_screen.dart';
 import 'modules/on_boarding/onboarding_screen.dart';
 
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget
             theme: lightTheme,
             darkTheme: darkTheme,
             themeMode: StoreCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-            home: StoreLoginScreen(),
+            home: startWidget,
           );
         },
       ),

@@ -16,18 +16,15 @@ class StoreRegisterCubit extends Cubit<StoreRegisterStates> {
   void userRegister({
     @required String email,
     @required String password,
-    @required String name,
-    @required String phone,
+    @required String confirmPassword,
   }) {
     emit(StoreRegisterLoadingState());
     DioHelper.postData(
       url: REGISTER,
       data: {
-        'name' : name,
-        'phone' : phone,
         'email': email,
         'password': password,
-
+        'confirmPassword' : confirmPassword,
       },
     ).then((value) {
       print(value.data);
