@@ -21,6 +21,7 @@ class StoreLayout extends StatelessWidget {
             currentIndex: cubit.currentIndex,
             items: [
               TitledNavigationBarItem(title: Text('الرئيسه'), icon: Feather.home,),
+              TitledNavigationBarItem(title: Text('المنتجات'), icon: Feather.rss,),
               TitledNavigationBarItem(title: Text('الاصناف'), icon: Feather.grid,),
               TitledNavigationBarItem(title: Text('العربه'), icon: Feather.shopping_cart,),
               TitledNavigationBarItem(title: Text('الحساب'), icon: Feather.user,),

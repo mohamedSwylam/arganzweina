@@ -9,6 +9,8 @@ class StoreInitialState extends StoreStates {}
 
 class StoreChangeBottomNavState extends StoreStates {}
 
+class StoreChangeDropdownState extends StoreStates {}
+
 class StoreLoadingHomeDataState extends StoreStates {}
 
 class StoreSuccessHomeDataState extends StoreStates {}

@@ -2,9 +2,9 @@ import 'package:arganzwina_app/layout/cubit/cubit.dart';
 import 'package:arganzwina_app/layout/cubit/states.dart';
 import 'package:arganzwina_app/model/categories_model.dart';
 import 'package:arganzwina_app/model/home_model.dart';
+import 'package:arganzwina_app/modules/product_screen/product_details.dart';
 import 'package:arganzwina_app/shared/components/components.dart';
 import 'package:arganzwina_app/shared/styles/color.dart';
-import 'package:arganzwina_app/shared/styles/icon_broken.dart';
 import 'package:arganzwina_app/shared/styles/styles.dart';
 import 'package:carousel_pro/carousel_pro.dart';
 import 'package:conditional_builder/conditional_builder.dart';
@@ -28,6 +28,7 @@ class HomeScreen extends StatelessWidget {
           resizeToAvoidBottomInset: false,
           backgroundColor: KWhiteColor,
           appBar: AppBar(
+            toolbarHeight: 60,
             elevation: 0,
             backgroundColor: Colors.transparent,
             leading: GestureDetector(
@@ -49,13 +50,13 @@ class HomeScreen extends StatelessWidget {
             ),
             actions: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GestureDetector(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Icon(Feather.shopping_bag),
-                  ),
+                padding: const EdgeInsets.symmetric(horizontal: 5.0, vertical: 15),
+                child: Text(
+                  'الرئيسية',
+                  style: TextStyle(
+                      fontSize: 20,
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold),
                 ),
               ),
             ],
@@ -143,7 +144,27 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-
+                SizedBox(height: 15,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0,),
+                  child: Text(
+                    ' جميع المنتجات ',
+                    style:Theme.of(context).textTheme.headline6.copyWith(fontWeight: FontWeight.bold),),),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 15.0),
+                  child: Container(
+                    height: 370,
+                    child: ListView.separated(
+                      physics: BouncingScrollPhysics(),
+                      itemBuilder: (context, index){
+                        return buildProductItem(context);
+                      },
+                      separatorBuilder: (context, index) => SizedBox(),
+                      itemCount: 10,
+                      scrollDirection: Axis.horizontal,
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
@@ -152,3 +173,95 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
+Widget buildProductItem(context)=>Container
+  (
+  margin: EdgeInsets.all(15.0),
+  width: 220,
+  clipBehavior: Clip.antiAliasWithSaveLayer,
+  decoration: BoxDecoration(
+    color: Colors.white,
+    border: Border.all(color: Colors.grey),
+    borderRadius: BorderRadius.circular(20.0),
+    boxShadow: [
+      BoxShadow(
+        color: Color(0xff37475A).withOpacity(0.2),
+        blurRadius: 20.0,
+        offset: const Offset(0, 10),
+      )
+    ],
+  ),
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      Expanded(
+        child: InkWell(
+          onTap: (){
+            navigateTo(context, ProductDetails());
+          },
+          child: Image(
+            image: NetworkImage('https://arganzwina.com/Files/Photos/d47dd8c8-4461-434a-a552-824862e8a84b_download.jpg'),
+            width: double.infinity,
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(height: 5,),
+          Text(
+            'قناع الطمي المغربي', style: TextStyle(
+            color: Colors.teal,
+            fontWeight: FontWeight.bold,
+            fontSize: 15,
+          ),
+            textAlign: TextAlign.center,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
+          SizedBox(height: 5,),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                '460 ر.س',
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.teal,
+                  decoration: TextDecoration.lineThrough,
+                ),
+              ),
+              SizedBox(width: 5,),
+              Text(
+                '360 ر.س',
+                style: TextStyle(
+                  fontSize: 15.0,
+                  color: Colors.red,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 5,),
+          Container(
+            color: Colors.teal,
+            width: double.infinity,
+            height: 40,
+            child: Center(
+              child: Text(
+                'اضف الي السله',
+                style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 15,
+              ),
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
+          ),
+        ],
+      )
+    ],
+  ),
+);

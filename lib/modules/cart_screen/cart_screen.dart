@@ -7,14 +7,16 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'full_cart.dart';
 
-class CategoriesScreen extends StatelessWidget {
+
+class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<StoreCubit,StoreStates>(
       listener: (context,state){},
       builder: (context,state){
-        return Center(child: Text('categories'));
+        return Scaffold(body: FullCart(),);
       },
     );
   }

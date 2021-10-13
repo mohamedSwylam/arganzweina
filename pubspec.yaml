@@ -42,6 +42,9 @@ dependencies:
   flutter_svg: ^0.22.0
   carousel_pro: ^1.0.0
   flutter_swiper: ^1.1.6
+  flutter_rating_bar: ^4.0.0
+  list_tile_switch: ^0.0.2
+
 
 
 
@@ -67,9 +70,7 @@ flutter:
     - family: Jannah
       fonts:
         - asset: assets/fonts/jannah.ttf
-    - family: Iconly-Broken
-      fonts:
-        - asset: fonts/icons.ttf
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

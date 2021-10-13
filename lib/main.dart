@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return  BlocProvider(
-      create: (BuildContext context) => StoreCubit()..getHomeData()..getCategoriesData()..getFavorites()..getUserData(),
+      create: (BuildContext context) => StoreCubit(),
       child: BlocConsumer<StoreCubit, StoreStates>(
         listener: (context, state) {},
         builder: (context, state) {
@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget
             theme: lightTheme,
             darkTheme: darkTheme,
             themeMode: StoreCubit.get(context).isDark ? ThemeMode.dark : ThemeMode.light,
-            home: startWidget,
+            home: OnBoardingScreen(),
           );
         },
       ),

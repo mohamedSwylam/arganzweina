@@ -4,10 +4,11 @@ import 'package:arganzwina_app/model/change_favorites_model.dart';
 import 'package:arganzwina_app/model/favorites_model.dart';
 import 'package:arganzwina_app/model/home_model.dart';
 import 'package:arganzwina_app/model/login_model.dart';
-import 'package:arganzwina_app/modules/categories/categories_screen.dart';
-import 'package:arganzwina_app/modules/favorite/favorite_screen.dart';
+import 'package:arganzwina_app/modules/cart_screen/cart_screen.dart';
+import 'package:arganzwina_app/modules/categories_screen/categories_screen.dart';
+import 'package:arganzwina_app/modules/feeds_screen/feeds_screen.dart';
 import 'package:arganzwina_app/modules/home_screen/home_screen.dart';
-import 'package:arganzwina_app/modules/settings/settings_screen.dart';
+import 'package:arganzwina_app/modules/user_screen/user_screen.dart';
 import 'package:arganzwina_app/shared/components/constants.dart';
 import 'package:arganzwina_app/shared/network/local/cache_helper.dart';
 import 'package:arganzwina_app/shared/network/remote/dio_helper.dart';
@@ -17,7 +18,6 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-
 class StoreCubit extends Cubit<StoreStates> {
   StoreCubit() : super(StoreInitialState());
 
@@ -25,9 +25,10 @@ class StoreCubit extends Cubit<StoreStates> {
   int currentIndex = 0;
   List<Widget> StoreScreens = [
     HomeScreen(),
+    FeedsScreen(),
     CategoriesScreen(),
-    FavoriteScreen(),
-    SettingsScreen(),
+    CartScreen(),
+    UserScreen(),
   ];
   bool isDark = false;
 
@@ -42,9 +43,17 @@ class StoreCubit extends Cubit<StoreStates> {
       });
     }
   }
+
+
   void changeIndex(int index) {
     currentIndex = index;
     emit(StoreChangeBottomNavState());
+  }
+  String dropDownValue = '1';
+  var items =  ['1','2','3','4','5','6'];
+  void changeDropDownValue(String newValue){
+    dropDownValue = newValue;
+    emit(StoreChangeDropdownState());
   }
 
   HomeModel homeModel;
@@ -154,8 +163,7 @@ class StoreCubit extends Cubit<StoreStates> {
       'name': name,
       'email': email,
       'phone': phone,
-    })
-        .then((value) {
+    }).then((value) {
       userLoginModel = StoreLoginModel.fromJson(value.data);
       //printFullText(value.data.toString());
 

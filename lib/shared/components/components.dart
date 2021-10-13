@@ -66,7 +66,33 @@ Widget defaultFormFiled({
             : null,
       ),
     );
-
+Widget userTitle({ String title}) {
+  return Padding(
+    padding: const EdgeInsets.symmetric(horizontal: 14.0),
+    child: Text(
+      title,
+      style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+    ),
+  );
+}
+Widget userListTile(
+    String title, String subTitle , BuildContext context,IconData icon) {
+  return Material(
+    color: Colors.transparent,
+    child: InkWell(
+      splashColor: Theme.of(context).splashColor,
+      child: ListTile(
+        onTap: () {},
+        title: Center(child: Padding(
+          padding: const EdgeInsets.only(top: 13.0),
+          child: Text(title,style: TextStyle(fontSize: 20),),
+        )),
+        subtitle: Text(subTitle),
+        trailing: Icon(icon),
+      ),
+    ),
+  );
+}
 
 Widget myDivider() => Padding(
   padding: const EdgeInsetsDirectional.only(

@@ -132,6 +132,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.0.3"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "4.0.0"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -184,6 +191,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3"
+  list_tile_switch:
+    dependency: "direct main"
+    description:
+      name: list_tile_switch
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   matcher:
     dependency: transitive
     description:
